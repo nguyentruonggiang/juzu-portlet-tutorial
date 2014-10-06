@@ -15,7 +15,8 @@
  */
 
 @juzu.Application(defaultController = org.juzu.tutorial.JuZcretApplication.class)
-@Bindings({ @Binding(value = org.juzu.tutorial.services.SecretService.class, implementation = org.juzu.tutorial.services.SecretServiceMemImpl.class) })
+@Bindings({ @Binding(value = SecretService.class, implementation = SecretServiceJCRImpl.class),
+          @Binding(value = SessionProviderService.class), @Binding(value = NodeHierarchyCreator.class)})
 @juzu.plugin.servlet.Servlet(value = "/")
 @WebJars(@WebJar("jquery"))
 @Scripts(
@@ -26,6 +27,12 @@
  )
  @Assets("*")
 package org.juzu.tutorial;
+
+import org.exoplatform.commons.juzu.KernelProviderFactory;
+import org.exoplatform.services.jcr.ext.app.SessionProviderService;
+import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
+import org.juzu.tutorial.services.SecretService;
+import org.juzu.tutorial.services.SecretServiceJCRImpl;
 
 import juzu.plugin.binding.Binding;
 import juzu.plugin.binding.Bindings;

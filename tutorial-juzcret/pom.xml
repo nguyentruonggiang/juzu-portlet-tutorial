@@ -72,7 +72,13 @@
           <groupId>javax.servlet</groupId>
         </exclusion>
       </exclusions>
-     </dependency>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.jcr</groupId>
+      <artifactId>exo.jcr.component.ext</artifactId>
+      <version>1.15.x-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
 
     <!-- Groovy is shipped with GateIn -->
     <dependency>
@@ -122,8 +128,7 @@
       <artifactId>juzu-depchain-arquillian-tomcat7</artifactId>
       <version>1.0.0-cr1</version>
       <scope>test</scope>
-    </dependency>
-
+    </dependency>    
   </dependencies>
 
   <build>
@@ -151,7 +156,7 @@
            </configuration>
          </execution>
        </executions>
-     </plugin>
+     </plugin>     
    </plugins>
   </build>
 
